@@ -35,7 +35,7 @@
       delegate_to: "{{ item.public_dns_name }}"
       wait_for_connection:
         delay: 30
-        timeout: 300
+        timeout: 400
       loop: "{{ ec2_instance_result.instances }}"
 
 - name: Configure EC2 Instances
@@ -62,7 +62,7 @@
 
   - name: Fetch eshop from Git
     git:
-      repo: 'https://github.com/Ajaxspeed/4IT572_semestralka.git'
+      repo: 'https://github.com/Ajaxspeed/zavm07_repo1.git'
       dest: ./app
 
   - name: Build Eshop Docker image
