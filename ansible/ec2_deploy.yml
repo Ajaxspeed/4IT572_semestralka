@@ -62,7 +62,7 @@
 
   - name: Fetch eshop from Git
     git:
-      repo: 'https://github.com/Ajaxspeed/zavm07_repo1.git'
+      repo: 'https://github.com/Ajaxspeed/4IT572_semestralka.git'
       dest: ./app
 
   - name: Build Eshop Docker image
