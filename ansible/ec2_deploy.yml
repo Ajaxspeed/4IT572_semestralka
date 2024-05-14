@@ -100,7 +100,7 @@
       register: ec2_running_eshops
 
     - name: Terminate old Eshop_final instances
-      ec2:
+      ec2_instance:
         aws_access_key: "{{ access_key }}"
         aws_secret_key: "{{ secret_key }}"
         region: us-east-1
