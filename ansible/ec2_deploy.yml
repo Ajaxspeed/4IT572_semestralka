@@ -11,7 +11,7 @@
         key_name: devops2
         vpc_subnet_id: subnet-0e77b0b58b76074b6
         tags:
-          Name: Eshop
+          Name: Eshop_final
         network:
           assign_public_ip: yes
         wait: yes
@@ -39,6 +39,8 @@
   hosts: launched
   connection: ssh
   become: yes
+  vars:
+    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
 
   tasks:
   - name: Install Git and Docker
