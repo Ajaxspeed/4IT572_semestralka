@@ -81,13 +81,13 @@
       register: ec2_running_eshops
 
     - name: Terminate old Eshop_final instances
-      ec2:
+      ec2_instance:
         aws_access_key: "{{ access_key }}"
         aws_secret_key: "{{ secret_key }}"
         security_token: "{{ session_token }}"
         region: us-east-1
         instance_ids: "{{ item.instance_id }}"
-        state: stopped
+        state: absent
       when: item.instance_id != {{ current_instance_id }}
       with_items: "{{ ec2_running_eshops.instances }}"
 
