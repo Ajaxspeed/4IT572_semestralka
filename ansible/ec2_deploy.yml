@@ -23,7 +23,7 @@
       register: ec2_instance_result
 
     - set_fact:
-        current_instance_id: "{{ ec2_instance_result.instances[0].instance_id }}"
+        current_instance_id: "{{ ec2_instance_result.instances[length(ec2_instance_result.instances)-1].instance_id }}"
 
     - name: Add instance host to group
       add_host:
