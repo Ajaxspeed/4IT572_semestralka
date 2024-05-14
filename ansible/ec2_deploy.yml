@@ -23,7 +23,7 @@
       register: ec2_instance_result
 
     - set_fact:
-        current_instance_id: "{{ ec2_instance_result.instances[length(ec2_instance_result.instances)-1].instance_id }}"
+        current_instance_id: "{{ ec2_instance_result.instances | last }}"
 
     - name: Add instance host to group
       add_host:
@@ -108,7 +108,7 @@
         region: us-east-1
         instance_ids: "{{ item.instance_id }}"
         state: absent
-      when: item.instance_id != current_instance_id
+      when: item.instance_id != current_instance_id.instance_id
       with_items: "{{ ec2_running_eshops.instances }}"
 
 
